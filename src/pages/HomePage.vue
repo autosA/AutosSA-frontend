@@ -5,17 +5,17 @@
       <h1 class="text-center mb-5">Lista de Autos</h1>
       <div v-if="loading" class="text-center">Cargando autos...</div>
       <div v-else>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-          <div v-for="auto in autos" :key="auto.id" class="col">
+        <div class="row g-4">
+          <div v-for="auto in autos" :key="auto.id" class="col-12 col-sm-6 col-md-4 col-lg-3">
             <div class="card bg-secondary text-light shadow border-0 h-100">
               <img :src="auto.imageUrl" class="card-img-top" alt="Imagen del auto">
-              <div class="card-body">
+              <div class="card-body d-flex flex-column">
                 <h5 class="card-title">{{ auto.brand }} {{ auto.model }}</h5>
                 <p class="card-text">Precio: ${{ auto.price }}</p>
                 <p class="card-text">Año: {{ auto.year }}</p>
                 <p class="card-text">Descripción: {{ auto.description }}</p>
-                <p class="card-text">
-                  Disponible: 
+                <p class="card-text mt-auto">
+                  Disponible:
                   <span :class="auto.available ? 'text-success' : 'text-danger'">
                     {{ auto.available ? "Sí" : "No" }}
                   </span>
@@ -54,7 +54,7 @@ export default {
         "https://storage.googleapis.com/foto_autosusados/automotoras/sinwm/908/01011193860-1-2-3.jpg",
         "https://tuningchile.cl/cdn/shop/files/Camaro_chev_1_93c34f6a-64d2-4e5f-b0ce-1c908a12346d_800x.jpg?v=1733900524",
         "https://www.elcarrocolombiano.com/wp-content/webp-express/webp-images/uploads/2021/10/20211012-MAZDA-MX-5-RF-2022-PRUEBA-DE-MANEJO-TEST-DRIVE-COMENTARIOS-VIDEO-COLOMBIA-01.jpg.webp",
-        "https://cdn.pixabay.com/photo/2014/05/02/21/50/car-336606_1280.jpg",
+        "https://www.ford.mx/content/ford/mx/es_mx/mustang-2023-content/billboard-carousel/overview-header/jcr:content/par/billboard/imageComponent/image.imgs.full.high.jpg",
         "https://cdn.pixabay.com/photo/2016/03/09/09/11/car-1245717_1280.jpg",
       ];
       const autos = await getAutosForCliente();
@@ -84,7 +84,7 @@ export default {
 }
 
 .card-img-top {
-  height: 200px;
+  height: 150px;
   object-fit: cover;
 }
 
@@ -106,11 +106,11 @@ export default {
   color: #dc3545 !important;
 }
 
-.row-cols-1 {
-  gap: 20px;
-}
-
 .container {
   max-width: 1200px;
+}
+
+.row-cols {
+  gap: 20px;
 }
 </style>
