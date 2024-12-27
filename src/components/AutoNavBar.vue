@@ -1,15 +1,18 @@
 <template>
   <nav class="navbar navbar-expand-lg bg-dark navbar-dark shadow-sm">
     <div class="container-fluid">
-      <router-link class="navbar-brand fw-bold text-uppercase" to="/">AutoMarket</router-link>
-      <button 
-        class="navbar-toggler" 
-        type="button" 
-        data-bs-toggle="collapse" 
-        data-bs-target="#navbarNav" 
-        aria-controls="navbarNav" 
-        aria-expanded="false" 
-        aria-label="Toggle navigation">
+      <router-link class="navbar-brand fw-bold text-uppercase" to="/"
+        >AutoMarket</router-link
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -32,7 +35,7 @@
 
 <script>
 export default {
-  name: "AutoNavbar"
+  name: "AutoNavbar",
 };
 </script>
 
@@ -60,7 +63,6 @@ export default {
 
 .nav-link:hover {
   color: #0d6efd !important;
-  background-color: #343a40;
 }
 
 .navbar-toggler-icon {

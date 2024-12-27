@@ -2,26 +2,6 @@
   <div class="bg-dark text-light min-vh-100">
     <Navbar />
     <div class="container py-5">
-      <!--Descripcion y presentacion-->
-      <div class="presentation mb-5">
-        <h1 class="text-center mb-5">Bienvenidos a AutoMarket</h1>
-        <div class="row align-items-center">
-          <div class="col-md-6 text-center">
-            <img
-              :src="require('@/assets/css/autos/pexel.jpg')"
-              alt="Concesionaria AutoPremium"
-              class="img-fluid"
-            />
-          </div>
-          <div class="col-md-6">
-            <p class="lead">
-              En AutoMarket, ofrecemos la mejor selección de autos nuevos y usados para
-              que encuentres el vehículo de tus sueños. ¡Calidad y confianza garantizadas!
-            </p>
-          </div>
-        </div>
-      </div>
-
       <!-- Autos disponibles -->
       <div>
         <h1 class="text-center mb-5">Este mes</h1>
@@ -54,9 +34,7 @@
       </div>
       <!--mas ofertas-->
       <div>
-        <div class="img">
-         
-        </div>
+        <div class="img"></div>
       </div>
     </div>
     <Footer />
@@ -64,7 +42,7 @@
 </template>
 
 <script>
-import Navbar from "@/components/AutoNavBar.vue";
+import Navbar from "@/components/AutoNavBarLog.vue";
 import Footer from "@/components/Footer.vue";
 import { getAutosForCliente } from "@/services/service";
 

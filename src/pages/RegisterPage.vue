@@ -1,11 +1,13 @@
 <template>
-  <div class="container vh-100 d-flex justify-content-center align-items-center ">
+  <div
+    class="container-fluid bg-dark vh-100 d-flex justify-content-center align-items-center"
+  >
     <div class="card p-5 shadow-sm" id="register-card">
-      <h3 class="text-center mb-4 fw-bold text-light">Registro de Cliente</h3>
+      <h3 class="text-center mb-4 fw-bold text-white">Registro de Cliente</h3>
       <form @submit.prevent="register">
         <div class="row g-3">
-          <div class="col-md-6">
-            <label for="name" class="form-label">Nombre Completo</label>
+          <div class="">
+            <label for="name" class="form-label text-white">Nombre Completo</label>
             <input
               type="text"
               id="name"
@@ -16,7 +18,7 @@
             />
           </div>
           <div class="col-md-6">
-            <label for="username" class="form-label">Nombre de Usuario</label>
+            <label for="username" class="form-label text-white">Nombre de Usuario</label>
             <input
               type="text"
               id="username"
@@ -27,7 +29,7 @@
             />
           </div>
           <div class="col-md-6">
-            <label for="password" class="form-label">Contraseña</label>
+            <label for="password" class="form-label text-white">Contraseña</label>
             <input
               type="password"
               id="password"
@@ -38,7 +40,7 @@
             />
           </div>
           <div class="col-md-6">
-            <label for="email" class="form-label">Correo Electrónico</label>
+            <label for="email" class="form-label text-white">Correo Electrónico</label>
             <input
               type="email"
               id="email"
@@ -49,7 +51,7 @@
             />
           </div>
           <div class="col-md-6">
-            <label for="telephone" class="form-label">Teléfono</label>
+            <label for="telephone" class="form-label text-white">Teléfono</label>
             <input
               type="text"
               id="telephone"
@@ -59,8 +61,8 @@
               required
             />
           </div>
-          <div class="col-md-6">
-            <label for="city" class="form-label">Ciudad</label>
+          <div class="">
+            <label for="city" class="form-label text-white">Ciudad</label>
             <input
               type="text"
               id="city"
@@ -71,7 +73,7 @@
             />
           </div>
           <div class="col-md-12">
-            <label for="address" class="form-label">Dirección</label>
+            <label for="address" class="form-label text-white">Dirección</label>
             <input
               type="text"
               id="address"
@@ -82,7 +84,9 @@
             />
           </div>
           <div class="col-md-12">
-            <label for="companyName" class="form-label">Nombre de la Compañía</label>
+            <label for="companyName" class="form-label text-white"
+              >Nombre de la Compañía</label
+            >
             <input
               type="text"
               id="companyName"
@@ -95,7 +99,9 @@
         <div v-if="error" class="text-danger text-center mt-3">{{ error }}</div>
         <div v-if="success" class="text-success text-center mt-3">{{ success }}</div>
         <div class="d-grid mt-4">
-          <button type="submit" class="btn btn-lg custom-btn">Registrar</button>
+          <button type="submit" class="btn btn-lg text-light custom-btn">
+            Registrar
+          </button>
         </div>
       </form>
     </div>
@@ -151,7 +157,6 @@ export default {
 };
 </script>
 
-
 <style scoped>
 body {
   background-color: #121212;
@@ -163,26 +168,16 @@ body {
   border-radius: 12px;
   max-width: 700px;
   width: 100%;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-h3 {
-  color: #ffffff;
 }
 
 .form-label {
-  font-size: 0.9rem;
-  font-weight: bold;
-  color: #b0b0b0;
+  font-size: 1rem;
 }
-
 
 .custom-btn {
-  background-color: #4c6baf;
-  color: #ffffff;
+  background-color: #007bff;
   border: none;
-  border-radius: 8px;
+  padding: 10px 15px;
+  font-size: 1.1rem;
 }
-
-
 </style>

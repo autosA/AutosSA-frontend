@@ -22,6 +22,16 @@ export const getClientes = async () => {
     }
 };
 
+export const getClienteById = async (idCliente) => {
+    try {
+        const response = await axios.get(`${API_URL}/clientes/${idCliente}`);
+        return response.data;
+    } catch (error) {
+        console.error("Error al obtener los datos", error);
+        alert("Ocurrio un error al obtener los datos del usuario");
+    }
+};
+
 
 //autos
 

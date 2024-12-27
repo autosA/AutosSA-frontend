@@ -1,12 +1,12 @@
 <template>
   <div class="container-fluid vh-100 d-flex justify-content-center align-items-center bg-dark">
-    <div class="card p-4 shadow-lg" id="login-card">
+    <div class="card p-4" id="login-card">
       <div class="row align-items-center">
         <div class="col-md-6 mb-3 mb-md-0">
           <h3 class="text-center text-light mb-4">Inicio de Sesión</h3>
           <form @submit.prevent="login">
             <div class="mb-3">
-              <label for="username" class="form-label text-white fw-bold">Nombre de Usuario</label>
+              <label for="username" class="form-label text-white ">Nombre de Usuario</label>
               <input
                 type="text"
                 id="username"
@@ -17,7 +17,7 @@
               />
             </div>
             <div class="mb-3">
-              <label for="password" class="form-label text-white fw-bold">Contraseña</label>
+              <label for="password" class="form-label text-white">Contraseña</label>
               <input
                 type="password"
                 id="password"
@@ -53,7 +53,7 @@ export default {
       username: "",
       password: "",
       error: "",
-      loginImage: require("../assets/css/autos/bandera-de-carreras.png"),
+      loginImage: require("../assets/css/logos/logo-inicio.png"),
     };
   },
   methods: {
@@ -71,7 +71,7 @@ export default {
         
         if (user) {
           sessionStorage.setItem("userId", user.id);
-          this.$router.push("/");
+          this.$router.push("/shopping");
         } else {
           this.error = "Nombre de usuario o contraseña incorrectos.";
         }
@@ -101,7 +101,6 @@ body {
 }
 
 .form-control {
-  color: white;
   border: 1px solid #444;
   font-size: 1rem;
   padding: 10px;
