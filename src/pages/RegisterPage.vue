@@ -99,7 +99,7 @@
         <div v-if="error" class="text-danger text-center mt-3">{{ error }}</div>
         <div v-if="success" class="text-success text-center mt-3">{{ success }}</div>
         <div class="d-grid mt-4">
-          <button type="submit" class="btn btn-lg text-light custom-btn">
+          <button type="submit" class="btn btn-lg text-light fw-bold custom-btn">
             Registrar
           </button>
         </div>

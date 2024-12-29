@@ -76,6 +76,10 @@ onBeforeUnmount(() => {
   color: #ffffff !important;
 }
 
+.navbar-brand:hover {
+  color: #0d6efd !important;
+}
+
 .user-btn {
   background-color:#1a1a1a;
   border: none;
