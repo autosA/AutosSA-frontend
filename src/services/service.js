@@ -32,6 +32,15 @@ export const getClienteById = async (idCliente) => {
     }
 };
 
+export const deleteClienteById = async (idCliente) => {
+    try {
+        await axios.delete(`${API_URL}/clientes/${idCliente}`);
+    } catch (error) {
+        console.error("Error al eliminar al usuario", error);
+        alert("Ocurrio un error al eliminar los datos del usuario");
+    }
+}
+
 
 //autos
 
