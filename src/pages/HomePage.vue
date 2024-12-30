@@ -24,7 +24,7 @@
 
       <!-- Autos disponibles -->
       <div>
-        <h1 class="text-center mb-5">Este mes</h1>
+        <h1 class="text-center mb-5">Destacados</h1>
         <div v-if="loading" class="text-center">Cargando autos...</div>
         <div v-else>
           <div class="row g-4">
@@ -33,9 +33,7 @@
               :key="auto.id"
               class="col-12 col-sm-6 col-md-4 col-lg-3"
             >
-              <div
-                class="card"
-              >
+              <div class="card">
                 <img :src="auto.img" class="card-img-top" alt="Imagen del auto" />
                 <div class="card-body d-flex flex-column">
                   <h5 class="card-title">{{ auto.brand }} {{ auto.model }}</h5>
@@ -55,9 +53,70 @@
           </div>
         </div>
       </div>
-      <!--mas ofertas-->
-      <div>
-        <div class="img"></div>
+
+      <!--Categorias-->
+      <div class="">
+        <h1 class="text-center mb-5 m-5">Categorias</h1>
+        <!--Sedan-->
+        <h3 class="m-5">Sedan</h3>
+        <div v-if="loading" class="text-center">Cargando autos...</div>
+        <div v-else>
+          <div class="row g-4">
+            <div
+              v-for="auto in autos"
+              :key="auto.id"
+              class="col-12 col-sm-6 col-md-4 col-lg-3"
+            >
+              <div class="card">
+                <img :src="auto.img" class="card-img-top" alt="Imagen del auto" />
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title">{{ auto.brand }} {{ auto.model }}</h5>
+                  <p class="card-text">Categoria: {{ auto.category }}</p>
+                  <p class="card-text">Precio: ${{ auto.price }}</p>
+                  <p class="card-text">Año: {{ auto.year }}</p>
+                  <p class="card-text">Descripción: {{ auto.description }}</p>
+                  <p class="card-text mt-auto">
+                    Disponible:
+                    <span :class="auto.available ? 'text-success' : 'text-danger'">
+                      {{ auto.available ? "Sí" : "No" }}
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Deportivos-->
+
+        <h3 class="m-5">Deportivos</h3>
+        <div v-if="loading" class="text-center">Cargando autos...</div>
+        <div v-else>
+          <div class="row g-4">
+            <div
+              v-for="auto in autos"
+              :key="auto.id"
+              class="col-12 col-sm-6 col-md-4 col-lg-3"
+            >
+              <div class="card">
+                <img :src="auto.img" class="card-img-top" alt="Imagen del auto" />
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title">{{ auto.brand }} {{ auto.model }}</h5>
+                  <p class="card-text">Categoria: {{ auto.category }}</p>
+                  <p class="card-text">Precio: ${{ auto.price }}</p>
+                  <p class="card-text">Año: {{ auto.year }}</p>
+                  <p class="card-text">Descripción: {{ auto.description }}</p>
+                  <p class="card-text mt-auto">
+                    Disponible:
+                    <span :class="auto.available ? 'text-success' : 'text-danger'">
+                      {{ auto.available ? "Sí" : "No" }}
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <Footer />

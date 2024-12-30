@@ -60,19 +60,8 @@ export default {
   },
   async created() {
     try {
-      const placeholderImages = [
-        "https://cdn.motor1.com/images/mgl/7ZL9x1/s1/toyota-corolla-2022-0.webp",
-        "https://storage.googleapis.com/foto_autosusados/automotoras/sinwm/908/01011193860-1-2-3.jpg",
-        "https://tuningchile.cl/cdn/shop/files/Camaro_chev_1_93c34f6a-64d2-4e5f-b0ce-1c908a12346d_800x.jpg?v=1733900524",
-        "https://www.elcarrocolombiano.com/wp-content/webp-express/webp-images/uploads/2021/10/20211012-MAZDA-MX-5-RF-2022-PRUEBA-DE-MANEJO-TEST-DRIVE-COMENTARIOS-VIDEO-COLOMBIA-01.jpg.webp",
-        "https://www.ford.mx/content/ford/mx/es_mx/mustang-2023-content/billboard-carousel/overview-header/jcr:content/par/billboard/imageComponent/image.imgs.full.high.jpg",
-        "https://cdn.pixabay.com/photo/2016/03/09/09/11/car-1245717_1280.jpg",
-      ];
       const autos = await getAutosForCliente();
-      this.autos = autos.map((auto, index) => ({
-        ...auto,
-        imageUrl: auto.imageUrl || placeholderImages[index % placeholderImages.length],
-      }));
+      this.autos = autos;
     } catch (error) {
       console.error("Error al obtener los datos de los autos", error);
     } finally {
