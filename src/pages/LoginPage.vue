@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import { getClientes } from "@/services/service.js";
+import { getAdministrador, getClientes } from "@/services/service.js";
 
 export default {
   data() {
@@ -64,19 +64,32 @@ export default {
       }
 
       try {
+        const admins = await getAdministrador();
         const users = await getClientes();
+
+        const admin = admins.find(
+          (admin) => admin.username === this.username && admin.password === this.password
+        );
+
+        if (admin) {
+          sessionStorage.setItem("adminId", admin.id);
+          this.$router.push("/perfilAdmin");
+          return;
+        }
+
         const user = users.find(
           (user) => user.username === this.username && user.password === this.password
         );
-        
+
         if (user) {
           sessionStorage.setItem("userId", user.id);
           this.$router.push("/shopping");
-        } else {
-          this.error = "Nombre de usuario o contraseña incorrectos.";
+          return;
         }
+
+        this.error = "Nombre de usuario o contraseña incorrectos.";
       } catch (error) {
-        this.error = "Error al cargar los datos de usuario.";
+        this.error = "Error al cargar los datos. Intente nuevamente.";
       }
     },
     goToRegister() {
@@ -85,6 +98,7 @@ export default {
   },
 };
 </script>
+
 
 <style scoped>
 body {

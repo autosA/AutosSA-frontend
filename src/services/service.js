@@ -63,12 +63,43 @@ export const getAutosForCliente = async () => {
     }
 }
 
-export const getAutosForAdmin = async () => {
+export const getAutosForAdmin = async (idAdmin) => {
     try {
-        const response = await axios.get(`${API_URL}/autos/admin`);
+        const response = await axios.get(`${API_URL}/autos/admin/${idAdmin}`);
         return response.data;
     } catch (error) {
         console.error('Error al obtener los datos de los autos', error);
         alert('Ocurrio un error al obtener los datos de los autos');
+    }
+}
+
+export const deleteAutoById = async (idAuto) => {
+    try {
+        await axios.delete(`${API_URL}/autos/${idAuto}`);
+    } catch (error) {
+        console.error("Error al eliminar auto", error);
+        alert("Ocurrio un error al eliminar los datos del auto");
+    }
+}
+
+//administrador
+
+export const getAdministrador = async () => {
+    try {
+        const response = await axios.get(`${API_URL}/admins`);
+        return response.data;
+    } catch (error) {
+        console.error("Error al obtener los datos", error);
+        alert("Ocurrio un error al obtener los datos del administrador");
+    }
+}
+
+export const getAdminById = async (idAdmin) => {
+    try {
+        const response = await axios.get(`${API_URL}/admins/${idAdmin}`);
+        return response.data;
+    } catch (error) {
+        console.error("Error al obtener los datos", error);
+        alert("Ocurrio un error al obtener los datos del administrador");
     }
 }

@@ -1,13 +1,16 @@
 <template>
   <div class="bg-dark text-light min-vh-100">
-    <NavBar />
+    <AutoNavBarLogAdmin />
     <div class="container py-5">
       <div class="row text-center">
         <!-- Contenedor de opciones -->
-        <div class="col-md-3 rounded-4" id="container">
+        <div class="col-md-3 rounded-4" id="container1">
           <img src="" id="img-setting" class="img-fluid" />
-          <router-link to="/perfilAdmin" class="btn fw-bold text-light rounded-4 btn-option">
-            Tu perfil
+          <router-link
+            to="/perfilAdmin"
+            class="btn fw-bold text-light rounded-4 btn-option"
+          >
+            Perfil administrador
           </router-link>
           <br /><br />
           <router-link
@@ -21,21 +24,21 @@
             to="/gestionAdmin"
             class="btn fw-bold text-light rounded-4 btn-option"
           >
-            Gestión Usuario
+            Gestión clientes
           </router-link>
           <br /><br />
-          <router-link to="/opcion2" class="btn fw-bold text-light rounded-4 btn-option">
-            Opción 2
+          <router-link to="/compras" class="btn fw-bold text-light rounded-4 btn-option">
+            Compras clientes
           </router-link>
           <br /><br />
-          <router-link to="/opcion3" class="btn fw-bold text-light rounded-4 btn-option">
+          <router-link to="#" class="btn fw-bold text-light rounded-4 btn-option">
             Opción 3
           </router-link>
         </div>
         <!-- Contenedor de gestión -->
-        <div class="col rounded-4 fw-bold" id="container">
+        <div class="col rounded-4 fw-bold" id="container2">
           <div id="title">
-            <p>Gestión usuarios</p>
+            <p>Gestión clientes</p>
           </div>
           <div class="row">
             <div
@@ -90,7 +93,7 @@
 </template>
 
 <script setup>
-import NavBar from "@/components/AutoNavBarLog.vue";
+import AutoNavBarLogAdmin from "@/components/AutoNavBarLogAdmin.vue";
 import Footer from "@/components/Footer.vue";
 import { deleteClienteById, getClientes } from "@/services/service";
 import { ref, onMounted } from "vue";
@@ -139,69 +142,81 @@ const deleteCliente = async () => {
 </script>
 
 <style scoped>
-#container {
+#container1 {
   background-color: #1e1e1e;
-    padding: 50px;
-    margin: 10px;
+  padding: 50px;
+  margin: 10px;
+  height: 100%;
+  min-height: 500px;
+}
+
+#container2 {
+  background-color: #1e1e1e;
+  padding: 50px;
+  margin: 10px;
+  flex-grow: 1;
+  height: 100%;
+  min-height: 500px;
+  overflow-x: auto;
 }
 
 #windows {
-    background-color: rgb(0, 0, 0);
-    border-radius: 15px;
-    position: absolute;
-    z-index: 1000;
+  background-color: rgb(0, 0, 0);
+  border-radius: 15px;
+  position: absolute;
+  z-index: 1000;
 }
 
 #boton-usuario-popover,
 #boton-usuario-cancelar {
-    width: 150px;
-    height: 40px;
-    margin: 5px;
+  width: 150px;
+  height: 40px;
+  margin: 5px;
 }
 
 #title {
-    border-radius: 25px;
-    max-width: 20%;
-    position: relative;
-    left: 40%;
+  border-radius: 25px;
+  max-width: 20%;
+  position: relative;
+  left: 40%;
 }
 
 .btn-option {
-    width: 200px;
-    margin: 10px;
+  width: 200px;
+  margin: 10px;
 }
 
-.btn-option:hover{
+.btn-option:hover {
   color: #0d6efd !important;
 }
 
 #img-setting {
-    width: 100%;
-    position: relative;
-    left: -1rex;
-    margin-bottom: 50px;
+  width: 100%;
+  position: relative;
+  left: -1rex;
+  margin-bottom: 50px;
 }
 
 .option {
-    background-color: #f0f0f0;
-    padding: 10px;
-    margin-bottom: 10px;
+  background-color: #f0f0f0;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 .cliente-card {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .cliente-image {
-    width: 100%;
-    cursor: pointer;
+  width: 100%;
+  cursor: pointer;
 }
 
 .cliente-card {
-    margin-bottom: 50px;
-    margin-top: 10px;
-    width: 150px;
-    position: relative;
-    left: 5rem;
+  margin-bottom: 50px;
+  margin-top: 10px;
+  width: 100px;
+  position: relative;
+  left: 5rem;
 }
 </style>
