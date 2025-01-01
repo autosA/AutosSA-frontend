@@ -46,7 +46,7 @@ export const deleteClienteById = async (idCliente) => {
 
 export const createAuto = async (newAuto) => {
     try {
-        await axios.post(`${API_URL}/plans`,newAuto);
+        await axios.post(`${API_URL}/plans`, newAuto);
     } catch (error) {
         console.error('Error al crear el plan', error);
         alert('Ocurrio un error al registrar el plan');
@@ -82,6 +82,25 @@ export const deleteAutoById = async (idAuto) => {
     }
 }
 
+export const getAutoByCategory = async (category) => {
+    try {
+        const response = await axios.get(`${API_URL}/autos/category/${category}`);
+        return response.data;
+    } catch (error) {
+        console.error("Error al obtener los datos", error);
+        alert("Ocurrio un error al obtener los datos de la categoria");
+    }
+}
+
+export const getAutoById = async (idAuto) => {
+    try {
+        const response = await axios.get(`${API_URL}/autos/${idAuto}`);
+        return response.data;
+    } catch (error) {
+        console.error("Error al obtener el auto por ID");
+        alert("Ocurrio un erro al obtener los datos del auto")
+    }
+}
 //administrador
 
 export const getAdministrador = async () => {

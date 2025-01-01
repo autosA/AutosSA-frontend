@@ -2,73 +2,40 @@
   <div class="bg-dark text-light min-vh-100">
     <Navbar />
     <div class="container py-5">
-      <!-- Autos disponibles -->
-      <div>
-        <h1 class="text-center mb-5">Este mes</h1>
-        <div v-if="loading" class="text-center">Cargando autos...</div>
-        <div v-else>
-          <div class="row g-4">
-            <div
-              v-for="auto in autos"
-              :key="auto.id"
-              class="col-12 col-sm-6 col-md-4 col-lg-3"
-            >
-              <div class="card bg-secondary text-light shadow border-0 h-100">
-                <img :src="auto.imageUrl" class="card-img-top" alt="Imagen del auto" />
-                <div class="card-body d-flex flex-column">
-                  <h5 class="card-title">{{ auto.brand }} {{ auto.model }}</h5>
-                  <p class="card-text">Precio: ${{ auto.price }}</p>
-                  <p class="card-text">Año: {{ auto.year }}</p>
-                  <p class="card-text">Descripción: {{ auto.description }}</p>
-                  <p class="card-text mt-auto">
-                    Disponible:
-                    <span :class="auto.available ? 'text-success' : 'text-danger'">
-                      {{ auto.available ? "Sí" : "No" }}
-                    </span>
-                  </p>
-                </div>
-              </div>
-            </div>
+      <!-- Autos seleccionado -->
+      <div class="col-md-3 rounded-4" id="container1">
+        <div>
+          <div v-if="loading" class="text-center">Cargando autos...</div>
+          <div v-else>
+            <h4>marca: {{ autos.brand }}</h4>
+            <h4>modelo: {{ autos.model }}</h4>
+            <img :src="autos.img" class="card-img-top" alt="Imagen del auto" />
+            <h1>Precio: {{ autos.price }}</h1>
           </div>
         </div>
       </div>
       <!--mas ofertas-->
-      <div>
-        <div class="img"></div>
-      </div>
     </div>
     <Footer />
   </div>
 </template>
 
-<script>
+<script setup>
 import Navbar from "@/components/AutoNavBarLog.vue";
 import Footer from "@/components/Footer.vue";
-import { getAutosForCliente } from "@/services/service";
+import { getAutoById } from "@/services/service";
+import { ref, onMounted } from "vue";
 
-export default {
-  name: "HomePage",
-  components: {
-    Navbar,
-    Footer,
-  },
-  data() {
-    return {
-      autos: [],
-      loading: true,
-    };
-  },
-  async created() {
-    try {
-      const autos = await getAutosForCliente();
-      this.autos = autos;
-    } catch (error) {
-      console.error("Error al obtener los datos de los autos", error);
-    } finally {
-      this.loading = false;
-    }
-  },
-};
+const autos = ref({});
+
+onMounted(async () => {
+  try {
+    autos.value = await getAutoById(4);
+  } catch (error) {
+    console.error("Error al obtener los datos del auto", error);
+    alert("Ocurrió un error al obtener los datos del auto");
+  }
+});
 </script>
 
 <style scoped>

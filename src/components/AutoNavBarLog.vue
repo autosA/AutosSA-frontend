@@ -87,7 +87,7 @@ onBeforeUnmount(() => {
   display: flex;
   align-items: center;
   cursor: pointer;
-  width: 120px;
+  width: auto;
 }
 
 .user-btn:hover{
@@ -105,6 +105,10 @@ onBeforeUnmount(() => {
   color: #ffffff;
   font-size: 1rem;
   font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 80px;
 }
 
 .popover-container {
